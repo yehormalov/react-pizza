@@ -11,31 +11,22 @@
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.015em;
+  position: relative;
 
-  select {
-    background: none;
-    border: 0;
+  span {
     color: var(--primary);
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     border-bottom: 1px dashed var(--primary);
-    padding: 1px 10px;
 
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.015em;
-
-    option {
-      background-color: var(--white);
-      padding: 30px;
-
-      &:checked {
-        background: rgba(254, 95, 30, 0.05);
-        color: var(--primary)
-      }
-    }
   }
+}
+
+.sortName {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .sortLike {
@@ -47,6 +38,7 @@
 
 .svg {
   margin-right: 7px;
+  transition: .12s;
   
 
   div {
@@ -60,4 +52,49 @@
 
     transform: rotate(180deg);
   }
+}
+
+.nav {
+  display: none;
+
+  position: absolute;
+  top: 38px;
+  right: 0;
+
+  list-style: none;
+
+  background: var(--white);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  margin-top: 4px;
+  overflow: hidden;
+
+  li {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    cursor: pointer;
+
+    padding: 10px 15px;
+
+    transition: .12s;
+
+    &:hover {
+      background-color: rgba(254, 95, 30, 0.05);;
+    }
+  }
+}
+
+.sortActive {
+  color: var(--primary);
+  font-weight: 600 !important;
+  background-color: rgba(254, 95, 30, 0.05);;
+}
+
+.dblock {
+  display: block !important;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }

@@ -3,6 +3,8 @@ import Filter from "./components/Filter/Filter";
 import Product from "./components/Products/Product";
 
 const filters = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые']
+const sorts = ['Популярности', 'Цене', 'Алфавиту']
+
 const stock = [
   {img: './img/pizza/1.png', title: 'Чизбургер-пицца', price: 395},
   {img: './img/pizza/2.png', title: 'Сырная', price: 450},
@@ -18,7 +20,7 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Filter filters={filters} />
+      <Filter filters={filters} sorts={sorts} />
       <div className="items">
         <h1>Все пиццы</h1>
         <div className="products">

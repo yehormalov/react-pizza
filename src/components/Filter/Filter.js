@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import FilterBtn from '../FilterBtn/FilterBtn'
 import { ReactSVG } from 'react-svg'
+import cn from 'classnames'
 
 import styles from './Filter.module.scss'
 
 const Filter = (props) => {
   const [filter, setFilter] = useState(props.filters[0])
+  const [sort, setSort] = useState(props.sorts[0])
+  const [isSortOpen, setIsSortOpen] = useState(false)
 
   return (
     <div className={styles.filter}>
@@ -17,13 +20,30 @@ const Filter = (props) => {
         ))}
       </div>
       <div className={styles.sort}>
-        <ReactSVG src="./img/arrow.svg" className={styles.svg} />
-        <p className={styles.sortLike}>Сортировка по:</p>
-        <select>
-          <option>популярности</option>
-          <option>цене</option>
-          <option>алфавиту</option>
-        </select>
+        <div 
+          className={styles.sortName}
+          onClick={() => {setIsSortOpen(!isSortOpen)}}
+        >
+          <ReactSVG 
+            src="./img/arrow.svg" 
+            className={cn(styles.svg, {
+              [styles.rotate]: isSortOpen
+            })}
+          />
+          <p className={styles.sortLike}>Сортировка по:</p>
+          <span>{sort.toLowerCase()}</span>
+        </div>
+        <ul 
+          className={cn(styles.nav, {
+            [styles.dblock]: isSortOpen,
+          })}
+        >
+          {props.sorts.map(item => (
+            sort === item
+              ? <li onClick={() => setSort(item)} key={item} className={styles.sortActive}>{item.toLowerCase()}</li>
+              : <li onClick={() => setSort(item)} key={item}>{item.toLowerCase()}</li>
+          ))}
+        </ul>
       </div>
     </div>
   )

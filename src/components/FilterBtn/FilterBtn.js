@@ -8,6 +8,7 @@ const FilterBtn = (props) => {
       className={cn(styles.btn, {
         [styles.active]: props.isActive
       })}
+      onClick={() => props.setFilter(props.item)}
     >
       {props.children}
     </button>

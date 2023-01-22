@@ -10,6 +10,11 @@ const Filter = (props) => {
   const [sort, setSort] = useState(props.sorts[0])
   const [isSortOpen, setIsSortOpen] = useState(false)
 
+  const onSortClick = (item) => {
+    setSort(item)
+    setIsSortOpen(false)
+  }
+
   return (
     <div className={styles.filter}>
       <div className={styles.variants}>
@@ -40,8 +45,8 @@ const Filter = (props) => {
         >
           {props.sorts.map(item => (
             sort === item
-              ? <li onClick={() => setSort(item)} key={item} className={styles.sortActive}>{item.toLowerCase()}</li>
-              : <li onClick={() => setSort(item)} key={item}>{item.toLowerCase()}</li>
+              ? <li onClick={() => onSortClick(item)} key={item} className={styles.sortActive}>{item.toLowerCase()}</li>
+              : <li onClick={() => onSortClick(item)} key={item}>{item.toLowerCase()}</li>
           ))}
         </ul>
       </div>

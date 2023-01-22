@@ -39,13 +39,15 @@ body {
 }
 
 .items {
-  padding: 0 50px;
+  padding: 0 50px 50px 50px;
 }
 
 .products {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
   justify-content: space-between;
-  flex-wrap: wrap;
+  grid-column-gap: 25px;
+  grid-row-gap: 40px;
 }
 
 h1 {

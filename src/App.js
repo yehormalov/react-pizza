@@ -28,23 +28,11 @@ function App() {
   const [filter, setFilter] = useState(filters[0])
   const [sort, setSort] = useState('популярности')
 
-  let firstRenderProducts
+  const [products, setProducts] = useState(stock)
 
-  switch(sort) {
-    case 'популярности':
-      firstRenderProducts = stock.sort((a, b) => a.popularity - b.popularity);
-      break;
-    case 'цене':
-      firstRenderProducts = stock.sort((a, b) => a.price - b.price);
-      break;
-    case 'алфавиту':
-      firstRenderProducts = stock.sort((a, b) => (
-        a.title < b.title ? -1 : a.title > b.title ? 1 : 0
-      ));
-      break;
-  }
-
-  const [products, setProducts] = useState(firstRenderProducts)
+  useEffect(() => {
+    setProducts( prev => [...prev.sort((a, b) => a.popularity - b.popularity)] );
+  }, [])
 
   return (
     <div className="wrapper">

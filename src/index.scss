@@ -44,9 +44,9 @@ body {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, calc(25% - 18px));
   justify-content: space-between;
-  grid-column-gap: 25px;
+  grid-column-gap: 24px;
   grid-row-gap: 40px;
 }
 

@@ -1,8 +1,14 @@
 .filter {
-  padding: 30px 50px;
+  padding: 20px 50px 30px 50px;
 
   display: flex;
   justify-content: space-between;
+}
+
+.variants {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .sort {
@@ -92,9 +98,29 @@
 }
 
 .dblock {
-  display: block !important;
+  display: table !important;
 }
 
 .rotate {
   transform: rotate(180deg);
+}
+
+@media (max-width: 1240px) {
+  .filter {
+    flex-direction: column;
+  }
+
+  .sort {
+    margin-top: 20px;
+  }
+
+  .nav {
+    left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .filter {
+    padding: 20px 30px 30px 30px;
+  }
 }

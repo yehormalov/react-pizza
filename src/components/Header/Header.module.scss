@@ -51,3 +51,24 @@
     margin-right: 5px;
   }
 }
+
+@media (max-width: 710px) {
+  .header {
+    flex-direction: column;
+    padding: 30px 50px;
+  }
+
+  .left, .btn {
+    align-self: flex-start;
+  }
+
+  .btn {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding: 30px 30px;
+  }
+}

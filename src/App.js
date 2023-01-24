@@ -29,6 +29,7 @@ function App() {
   const [sort, setSort] = useState('популярности')
 
   const [products, setProducts] = useState(stock)
+  const [cartProducts, setCartProducts] = useState([])
 
   useEffect(() => {
     setProducts( prev => [...prev.sort((a, b) => a.popularity - b.popularity)] );
@@ -36,7 +37,9 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Header />
+      <Header 
+        cartProducts={cartProducts}
+      />
       <Filter 
         filter={filter} 
         setFilter={setFilter} 
@@ -57,8 +60,8 @@ function App() {
           {products
             .map(item => (
               filter === 'Все'
-                ? <Product key={item.title} img={item.img} title={item.title} price={item.price} />
-                : item.filters.includes(filter) && <Product key={item.title} img={item.img} title={item.title} price={item.price} />
+                ? <Product setCartProducts={setCartProducts} key={item.title} img={item.img} title={item.title} price={item.price} popularity={item.popularity} />
+                : item.filters.includes(filter) && <Product setCartProducts={setCartProducts} key={item.title} img={item.img} title={item.title} price={item.price} popularity={item.popularity} />
               ))
           }
         </div>

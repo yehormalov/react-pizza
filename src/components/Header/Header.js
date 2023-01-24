@@ -1,7 +1,16 @@
 import styles from './Header.module.scss'
 import { ReactSVG } from 'react-svg'
 
-const Header = () => {
+const Header = (props) => {
+  const calcSum = (arr) => {
+    let sum = 0;
+    arr.forEach(obj => {
+      sum += obj.price
+    })
+    let n = sum.toString();
+    return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
+  }
+
   return (
     <div className={styles.header}>
       <div className={styles.left}>
@@ -12,10 +21,10 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.btn}>
-        <span className={styles.price}>520 ₴</span>
+        <span className={styles.price}>{calcSum(props.cartProducts)} ₴</span>
         <span className={styles.value}>
           <ReactSVG src='img/cart.svg' className={styles.cart} />
-          3
+          {props.cartProducts.length}
         </span>
       </div>
     </div>

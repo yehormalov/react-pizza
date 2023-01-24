@@ -9,7 +9,7 @@ const Product = (props) => {
   const [type, setType] = useState('thin')
   const [size, setSize] = useState('small')
 
-  const { img, title, price } = props
+  const { img, title, price, popularity } = props
 
   return (
     <div className={styles.item}>
@@ -63,7 +63,13 @@ const Product = (props) => {
       </div>
       <div className={styles.result}>
         <div className={styles.price}>от {price} ₴</div>
-        <AddBtn />
+        <AddBtn 
+          setCartProducts={props.setCartProducts}
+          img={img}
+          title={title}
+          price={price}
+          popularity={popularity}
+        />
       </div>
     </div>
   )

@@ -14,12 +14,7 @@
   transition: .12s;
 
   &:hover {
-    background-color: var(--primary);
-    color: var(--white);
-  }
-
-  &:hover .add span {
-    background-color: #fff;
+    background-color: rgba(254, 95, 30, 0.05);
   }
 }
 
@@ -56,5 +51,25 @@
     left: 50%;
 
     margin-left: -1px;
+  }
+}
+
+.number {
+  background-color: var(--primary);
+  border-radius: 50%;
+  margin-left: 6px;
+  margin-right: -5px;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  
+  span {
+    color: var(--white);
+    line-height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 }
